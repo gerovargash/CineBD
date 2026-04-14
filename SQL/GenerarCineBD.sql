@@ -474,14 +474,14 @@ INSERT INTO funciones (IdPelicula, IdSala, FechaProbableInicio, FechaProbableFin
 -- Poblar tabla de reservas
 
 INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI, FechaAlta, FechaBaja, EstaPagada, Observaciones) VALUES 
-(23, 4, 2, 8 , "44637850", '2026-02-16 19:00:00', NULL, "S", NULL),
-(23, 4, 2, 9 , "44637950", '2026-02-16 19:00:00', NULL, "S", NULL),
-(23, 4, 2, 10, "44638050", '2026-02-16 19:00:00', NULL, "S", NULL),
-(24, 4, 1, 1 , "44637850", '2026-02-21 19:00:00', NULL, "S", NULL),
-(24, 4, 1, 2 , "44637950", '2026-02-21 19:00:00', NULL, "S", NULL),
-(24, 4, 1, 3 , "44638050", '2026-02-21 19:00:00', NULL, "S", NULL),
-(24, 4, 1, 4 , "44638150", '2026-02-21 19:00:00', NULL, "S", NULL),
-(24, 4, 1, 5 , "44637850", now()				, NULL, "N", NULL),
+(24, 4, 2, 8 , "44637850", '2026-02-16 19:00:00', NULL, "S", NULL),
+(24, 4, 2, 9 , "44637950", '2026-02-16 19:00:00', NULL, "S", NULL),
+(24, 4, 2, 10, "44638050", '2026-02-16 19:00:00', NULL, "S", NULL),
+(25, 4, 1, 1 , "44637850", '2026-02-21 19:00:00', NULL, "S", NULL),
+(25, 4, 1, 2 , "44637950", '2026-02-21 19:00:00', NULL, "S", NULL),
+(25, 4, 1, 3 , "44638050", '2026-02-21 19:00:00', NULL, "S", NULL),
+(25, 4, 1, 4 , "44638150", '2026-02-21 19:00:00', NULL, "S", NULL),
+(25, 4, 1, 5 , "44637850", now()				, NULL, "N", NULL),
 (1 , 1, 1, 1 , "44556677", now()				, NULL, "S", NULL),
 (2 , 1, 1, 2 , "44556677", now()				, NULL, "S", NULL),
 (3 , 1, 1, 3 , "44556677", now()				, NULL, "S", NULL),
