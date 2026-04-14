@@ -139,7 +139,14 @@ INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI	   , FechaAlt
 INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI	   , FechaAlta			  , FechaBaja, EstaPagada, Observaciones)
 			  VALUES (1	   	   , 1		   , 1	   , 10	     , 44666777, "2026-02-16 19:00:00", NULL	 , "S" 		 , NULL			);	      
 
-
+-- Prueba EstaPagada
+INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI	   , FechaAlta			  , FechaBaja, EstaPagada, Observaciones)
+			  VALUES (1  	   , 1		   , 1	   , 6	     , 44666777, "2026-02-16 19:00:00", NULL	 , "a" 		 , NULL			);			
+INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI	   , FechaAlta			  , FechaBaja, EstaPagada, Observaciones)
+			  VALUES (1  	   , 1		   , 1	   , 6	     , 44666777, "2026-02-16 19:00:00", NULL	 , "s" 		 , NULL			);			
+INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI	   , FechaAlta			  , FechaBaja, EstaPagada, Observaciones)
+			  VALUES (1  	   , 1		   , 1	   , 6	     , 44666777, "2026-02-16 19:00:00", NULL	 , "n" 		 , NULL			);						
+              
 -- ======================================================================================================================
 -- Pruebas tabla Salas
 -- ======================================================================================================================          

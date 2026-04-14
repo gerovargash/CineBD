@@ -248,9 +248,11 @@ ALTER TABLE Funciones MODIFY Estado CHAR(1) CHARACTER SET utf8mb4 COLLATE utf8mb
 ALTER TABLE Generos   MODIFY Estado CHAR(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs;
 ALTER TABLE Peliculas MODIFY Estado CHAR(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs;
 ALTER TABLE Salas 	  MODIFY Estado CHAR(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs;
+ALTER TABLE Reservas  MODIFY EstaPagada CHAR(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs;
 
--- Indices adicionales
+-- Indices y Checks adicionales
 ALTER TABLE Butacas ADD UNIQUE INDEX UI_IdSalaFilaColumna (IdSala, Fila, Columna);
+ALTER TABLE Reservas ADD CONSTRAINT checkEstaPagadaReservas CHECK (estaPagada = "S" OR estaPagada = "N");
 
 
 -- =========================================================================================================================================
@@ -530,7 +532,7 @@ DELIMITER ;
 -- =========================================================================================================================================
 
 -- SP DeterminarPrecioDeEntrada
-DROP procedure IF EXISTS `DeterminarPrecioDeEntrada`;
+DROP PROCEDURE IF EXISTS `DeterminarPrecioDeEntrada`;
 DELIMITER $$
 USE `bdcine`$$
 CREATE PROCEDURE `DeterminarPrecioDeEntrada`(
@@ -562,10 +564,10 @@ DELIMITER ;
 
 
 -- SP ReporteDeOcupacion
-DROP procedure IF EXISTS `ReporteDeOcupacionPorPelicula`;
+DROP PROCEDURE IF EXISTS `ReporteDeOcupacionPorPelicula`;
 DELIMITER $$
 USE `bdcine`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ReporteDeOcupacionPorPelicula`(
+CREATE PROCEDURE `ReporteDeOcupacionPorPelicula`(
 	IN pIdPelicula INT,
     IN pFechaInicio DATE,
     IN pFechaFin DATE
@@ -662,10 +664,10 @@ DELIMITER ;
 
 
 -- SP Dame Cartelera
-DROP procedure IF EXISTS `DameCartelera`;
+DROP PROCEDURE IF EXISTS `DameCartelera`;
 DELIMITER $$
 USE `bdcine`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DameCartelera`(
+CREATE PROCEDURE `DameCartelera`(
 	IN pFechaInicio	DATE, 
     IN pFechaFin 	DATE
 )
