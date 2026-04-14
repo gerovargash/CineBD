@@ -9,19 +9,19 @@ SELECT Precio FROM Funciones WHERE IdFuncion = 5;
 CALL DeterminarPrecioDeEntrada(5);
 
 -- Llamada a una funcion con genero especial (* 1.10)
-SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 20;
-CALL DeterminarPrecioDeEntrada(21);	
+SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 22;
+CALL DeterminarPrecioDeEntrada(22);	
 
 -- Llamada a una funcion con sala especial (* 1.05)
-SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 10;
-CALL DeterminarPrecioDeEntrada(10);
+SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 3;
+CALL DeterminarPrecioDeEntrada(3);
 
 -- Llamada a una funcion con genero y sala especial (* 1.10 * 1.05)
-SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 22;
+SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 23;
 CALL DeterminarPrecioDeEntrada(23);
 
 -- Llamada a una funcion inactiva
-SELECT Precio, Estado FROM Funciones WHERE IdFuncion = 19;
+SELECT Precio, Estado FROM Funciones WHERE IdFuncion = 20;
 CALL DeterminarPrecioDeEntrada(20);
 
 -- Llamada a una funcion ya finalizada
@@ -40,8 +40,8 @@ SELECT * FROM Funciones ORDER BY IdPelicula;
 SELECT * FROM Reservas ORDER BY IdFuncion;
 
 -- Llamada normal sobre una pelicula 
-SELECT * FROM Reservas WHERE IdPelicula = 1 ORDER BY IdFuncion;
-CALL ReporteDeOcupacionPorPelicula(1, "2026-01-01", "2026-06-01");
+SELECT * FROM Reservas WHERE IdPelicula = 1 ORDER BY IdFuncion;		-- RECORDAR que no se tendran en cuenta funciones sin FechaInicio
+CALL ReporteDeOcupacionPorPelicula(1, "2026-01-01", "2026-08-01");
 
 -- Llamada con funciones inactivas
 SELECT * FROM Funciones WHERE IdPelicula = 10;
