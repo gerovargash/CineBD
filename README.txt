@@ -1,7 +1,7 @@
 =====================================
 Pasos para descargar todo el proyecto
 =====================================
-1. Se debe descargar todo el proyecto de GitHub como archivo .zip
+1. Se debe descargar el archivo .zip o clonar el proyecto de GitHub
 2. Descomprimir el archivo descargado
 
 ____________________________________
