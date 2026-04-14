@@ -1,7 +1,8 @@
 =====================================
 Pasos para descargar todo el proyecto
 =====================================
-1. Se debe descargar todo el proyecto de GitHub
+1. Se debe descargar todo el proyecto de GitHub como archivo .zip
+2. Descomprimir el archivo descargado
 
 ____________________________________
 Pasos para crear la BD y usar la BD:
