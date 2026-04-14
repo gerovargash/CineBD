@@ -593,7 +593,7 @@ BEGIN
         DeterminarPrecioDeEntrada(f.IdFuncion) * COUNT(r.IdButaca) AS "Recaudacion"	
     FROM Funciones AS f
 		INNER JOIN Salas 	AS s ON f.IdSala = s.IdSala
-		LEFT JOIN  Reservas AS r ON f.IdFuncion = r.IdFuncion
+		LEFT JOIN  Reservas AS r ON f.IdFuncion = r.IdFuncion AND EstaPagada = "S"
     WHERE
 		f.Estado = "A"
         AND f.IdPelicula = pIdPelicula

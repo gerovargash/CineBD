@@ -48,7 +48,7 @@ SELECT * FROM Funciones WHERE IdPelicula = 10;
 SELECT * FROM Reservas WHERE IdPelicula = 10 ORDER BY IdFuncion;
 CALL ReporteDeOcupacionPorPelicula(10, "2026-01-01", "2026-06-01");
 
--- Llamada con peliculas sin FechaInicio y sin reservas
+-- Llamada con peliculas sin FechaInicio y sin reservas 
 SELECT * FROM Funciones WHERE IdPelicula = 4;
 SELECT * FROM Reservas WHERE IdPelicula = 4 ORDER BY IdFuncion;
 CALL ReporteDeOcupacionPorPelicula(4, "2026-01-01", "2026-06-01");
