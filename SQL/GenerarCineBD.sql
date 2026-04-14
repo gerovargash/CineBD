@@ -8,16 +8,16 @@
 -- Target DBMS : MySQL 5.x
 --
 
-DROP DATABASE bdcine;
+DROP DATABASE IF EXISTS bdcine;
 CREATE DATABASE IF NOT EXISTS bdcine;
 USE bdcine;
 
-DROP TABLE Reservas;
-DROP TABLE Butacas;
-DROP TABLE Funciones;
-DROP TABLE Salas;
-DROP TABLE Peliculas;
-DROP TABLE Generos;
+DROP TABLE IF EXISTS Reservas;
+DROP TABLE IF EXISTS Butacas;
+DROP TABLE IF EXISTS Funciones;
+DROP TABLE IF EXISTS Salas;
+DROP TABLE IF EXISTS Peliculas;
+DROP TABLE IF EXISTS Generos;
 
 -- =========================================================================================================================================
 -- CREACION DE TABLAS E INDICES
@@ -471,13 +471,8 @@ INSERT INTO funciones (IdPelicula, IdSala, FechaProbableInicio, FechaProbableFin
 (4, 1, '2026-02-22 19:00:00', '2026-02-22 21:14:00', '2026-02-22 19:00:00', '2026-02-22 21:14:00',  2600.00, 'A', NULL),
 (4, 4, '2026-03-05 19:00:00', '2026-03-05 21:14:00', '2026-03-05 19:00:00', '2026-03-05 21:14:00',  2600.00, 'A', NULL);
 
-/*INSERT INTO funciones (IdPelicula, IdSala, FechaProbableInicio, FechaProbableFin, FechaInicio, FechaFin, Precio, Estado, Observaciones) VALUES*/
-
 
 -- Poblar tabla de reservas
-/*SELECT * FROM Funciones;
-SELECT * FROM Butacas;
-SELECT * FROM Reservas;*/
 
 INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI, FechaAlta, FechaBaja, EstaPagada, Observaciones) VALUES 
 (23, 4, 2, 8 , "44637850", '2026-02-16 19:00:00', NULL, "S", NULL),
@@ -498,7 +493,7 @@ INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI, FechaAlta, F
 -- CREAR FUNCIONES
 -- =========================================================================================================================================
 
-DROP function IF EXISTS `DeterminarPrecioDeEntrada`;
+DROP FUNCTION IF EXISTS `DeterminarPrecioDeEntrada`;
 
 DELIMITER $$
 USE `bdcine`$$
