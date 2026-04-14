@@ -46,7 +46,7 @@ func ReporteOcupacionPorPelicula(c *gin.Context) {
 	if err != nil {
 		errMsg := err.Error()
 		if strings.Contains(errMsg, "Pelicula inexistente") {
-			c.JSON(http.StatusBadRequest, gin.H{"error": errMsg}) // 400
+			c.JSON(http.StatusNotFound, gin.H{"error": errMsg}) // 404
 		} else if strings.Contains(errMsg, "Incorrect date value") {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Fecha de inicio o fin invalida"}) // 400
 		} else {

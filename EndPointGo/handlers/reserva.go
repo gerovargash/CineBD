@@ -12,7 +12,7 @@ import (
 // ReservarButaca godoc
 // @Summary      Reserva una butaca
 // @Description  Crea una reserva para una funcion con un DNI
-// @Tags         reservas
+// @Tags         funciones
 // @Accept       json
 // @Produce      json
 // @Param        body  body  models.Reserva  true  "Datos de la reserva"
@@ -40,7 +40,7 @@ func ReservarButaca(c *gin.Context) {
 		if strings.Contains(errMsg, "Data too long for column") {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Ingrese DNI valido"}) // 400
 		} else if strings.Contains(errMsg, "Funcion inexistente") {
-			c.JSON(http.StatusBadRequest, gin.H{"error": "La funcion está inexistente"}) // 400
+			c.JSON(http.StatusNotFound, gin.H{"error": "Funcion inexistente"}) // 404
 		} else if strings.Contains(errMsg, "Funcion inactiva") {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "La funcion está inactiva"}) // 400
 		} else if strings.Contains(errMsg, "Butaca ocupada") {

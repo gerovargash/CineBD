@@ -94,7 +94,7 @@ paths:
             type: object
       summary: Cartelera para un periodo de tiempo
       tags:
-      - cartelera
+      - funciones
   /ocupacion/reporte:
     get:
       description: Devuelve las ventas del cine para una pelicula en un periodo de
@@ -199,5 +199,5 @@ paths:
             type: object
       summary: Reserva una butaca
       tags:
-      - reservas
+      - funciones
 swagger: "2.0"

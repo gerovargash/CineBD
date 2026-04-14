@@ -22,7 +22,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "cartelera"
+                    "funciones"
                 ],
                 "summary": "Cartelera para un periodo de tiempo",
                 "parameters": [
@@ -193,7 +193,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "reservas"
+                    "funciones"
                 ],
                 "summary": "Reserva una butaca",
                 "parameters": [

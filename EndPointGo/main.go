@@ -7,7 +7,7 @@ package main
 
 import (
 	"EndPointGo/database"
-	_ "EndPointGo/docs" // ← importante, lo agregamos ahora
+	_ "EndPointGo/docs"
 	"EndPointGo/routes"
 
 	"github.com/gin-gonic/gin"
@@ -15,7 +15,10 @@ import (
 
 func main() {
 	database.ConectarDB()
+
 	router := gin.Default()
+
 	routes.ConfigurarRutas(router)
+
 	router.Run("192.168.1.30:1320")
 }

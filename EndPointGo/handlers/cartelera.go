@@ -12,7 +12,7 @@ import (
 // Cartelera godoc
 // @Summary      Cartelera para un periodo de tiempo
 // @Description  Devuelve la cartelera del cine para un periodo de tiempo
-// @Tags         cartelera
+// @Tags         funciones
 // @Produce      json
 // @Param        fechaInicio  query  string  true  "Fecha inicio (YYYY-MM-DD)"
 // @Param        fechaFin     query  string  true  "Fecha fin (YYYY-MM-DD)"
