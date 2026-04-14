@@ -1,0 +1,203 @@
+basePath: /v1
+definitions:
+  models.Cartelera:
+    properties:
+      duracion:
+        type: string
+      entradasDisponibles:
+        type: integer
+      fechaHora:
+        type: string
+      genero:
+        type: string
+      idFuncion:
+        type: integer
+      idSala:
+        type: number
+      pelicula:
+        type: string
+      precio:
+        type: number
+      sala:
+        type: string
+    type: object
+  models.PrecioEntrada:
+    properties:
+      precio:
+        type: number
+    type: object
+  models.ReporteOcupacion:
+    properties:
+      butacasVendidas:
+        type: integer
+      fechaInicio:
+        type: string
+      idFuncion:
+        type: integer
+      idSala:
+        type: integer
+      recaudacion:
+        type: number
+      sala:
+        type: string
+    type: object
+  models.Reserva:
+    properties:
+      dni:
+        type: string
+      idButaca:
+        type: integer
+      idFuncion:
+        type: integer
+    type: object
+host: cinebd.ddns.net:1320
+info:
+  contact: {}
+  description: API para la gestion de reservas de cine
+  title: API Cine
+  version: "1.0"
+paths:
+  /cartelera:
+    get:
+      description: Devuelve la cartelera del cine para un periodo de tiempo
+      parameters:
+      - description: Fecha inicio (YYYY-MM-DD)
+        in: query
+        name: fechaInicio
+        required: true
+        type: string
+      - description: Fecha fin (YYYY-MM-DD)
+        in: query
+        name: fechaFin
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Cartelera'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Cartelera para un periodo de tiempo
+      tags:
+      - cartelera
+  /ocupacion/reporte:
+    get:
+      description: Devuelve las ventas del cine para una pelicula en un periodo de
+        tiempo
+      parameters:
+      - description: ID de la pelicula
+        in: query
+        name: idPelicula
+        required: true
+        type: integer
+      - description: Fecha inicio (YYYY-MM-DD)
+        in: query
+        name: fechaInicio
+        required: true
+        type: string
+      - description: Fecha fin (YYYY-MM-DD)
+        in: query
+        name: fechaFin
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.ReporteOcupacion'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Reporte de ocupacion por pelicula
+      tags:
+      - reportes
+  /precio/{idFuncion}:
+    get:
+      description: Calcula el precio final segun genero y sala
+      parameters:
+      - description: ID de la funcion
+        in: path
+        name: idFuncion
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.PrecioEntrada'
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Determina el precio de una entrada
+      tags:
+      - funciones
+  /reservas:
+    post:
+      consumes:
+      - application/json
+      description: Crea una reserva para una funcion con un DNI
+      parameters:
+      - description: Datos de la reserva
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.Reserva'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "400":
+          description: Bad Request
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Reserva una butaca
+      tags:
+      - reservas
+swagger: "2.0"
