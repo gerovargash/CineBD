@@ -10,7 +10,7 @@ CALL DeterminarPrecioDeEntrada(5);
 
 -- Llamada a una funcion con genero especial (* 1.10)
 SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 20;
-CALL DeterminarPrecioDeEntrada(20);	
+CALL DeterminarPrecioDeEntrada(21);	
 
 -- Llamada a una funcion con sala especial (* 1.05)
 SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 10;
@@ -18,11 +18,11 @@ CALL DeterminarPrecioDeEntrada(10);
 
 -- Llamada a una funcion con genero y sala especial (* 1.10 * 1.05)
 SELECT f.Precio, f.IdSala, g.Genero FROM Funciones f INNER JOIN Peliculas p ON f.IdPelicula = p.IdPelicula INNER JOIN Generos g ON p.IdGenero = g.IdGenero WHERE IdFuncion = 22;
-CALL DeterminarPrecioDeEntrada(22);
+CALL DeterminarPrecioDeEntrada(23);
 
 -- Llamada a una funcion inactiva
 SELECT Precio, Estado FROM Funciones WHERE IdFuncion = 19;
-CALL DeterminarPrecioDeEntrada(19);
+CALL DeterminarPrecioDeEntrada(20);
 
 -- Llamada a una funcion ya finalizada
 SELECT Precio, FechaFin FROM Funciones WHERE IdFuncion = 4;
@@ -76,7 +76,7 @@ CALL ReservarButacaConDNI(7, 20, '55637850');
 DELETE FROM Reservas WHERE IdReserva = LAST_INSERT_ID();
 
 -- Llamado de una reserva a una funcion inactiva
-CALL ReservarButacaConDNI(19, 15, 44637850);
+CALL ReservarButacaConDNI(20, 15, 44637850);
 
 -- Llamado de una reserva a una funcion inexistente
 CALL ReservarButacaConDNI(190, 15, 44637850);
