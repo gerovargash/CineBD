@@ -260,7 +260,7 @@ ALTER TABLE Reservas ADD CONSTRAINT checkEstaPagadaReservas CHECK (estaPagada = 
 -- =========================================================================================================================================
 
 -- Poblar tabla de generos
-INSERT INTO generos (IdGenero, Genero, Estado) VALUES
+INSERT INTO Generos (IdGenero, Genero, Estado) VALUES
 (1,  'Acción',         'A'),
 (2,  'Aventura',       'A'),
 (3,  'Comedia',        'A'),
@@ -281,7 +281,7 @@ INSERT INTO generos (IdGenero, Genero, Estado) VALUES
 
 
 -- Poblar tabla de salas
-INSERT INTO salas (IdSala, Sala, TipoSala, Direccion, Estado, Observaciones) VALUES
+INSERT INTO Salas (IdSala, Sala, TipoSala, Direccion, Estado, Observaciones) VALUES
 (1, 'Sala 1', 'C', 'Av. Mitre 1200'	, 'A', 'Sala principal grande'),
 (2, 'Sala 2', 'C', 'Av. Mitre 1200'	, 'A', 'Sala clásica pequeña'),
 (3, 'Sala 3', 'C', 'Av. Sarmiento 599'	, 'A', 'Sala principal grande'),
@@ -289,7 +289,7 @@ INSERT INTO salas (IdSala, Sala, TipoSala, Direccion, Estado, Observaciones) VAL
 
 
 -- Poblar tabla de peliculas
-INSERT INTO peliculas (IdPelicula, IdGenero ,Pelicula, Sinopsis, Duracion, Actores, Estado, Observaciones) VALUES
+INSERT INTO Peliculas (IdPelicula, IdGenero ,Pelicula, Sinopsis, Duracion, Actores, Estado, Observaciones) VALUES
 (1,  1, 'John Wick',
     'Un ex asesino vuelve al mundo del crimen para vengarse de quienes mataron a su perro.',
     101, 'Keanu Reeves, Michael Nyqvist, Alfie Allen', 'A', NULL),
@@ -377,7 +377,7 @@ INSERT INTO peliculas (IdPelicula, IdGenero ,Pelicula, Sinopsis, Duracion, Actor
 
 
 -- Poblar tabla de butacas
-INSERT INTO butacas (IdButaca, IdSala ,NroButaca, Fila, Columna, Estado, Observaciones) VALUES
+INSERT INTO Butacas (IdButaca, IdSala ,NroButaca, Fila, Columna, Estado, Observaciones) VALUES
 (1	, 1, 1, 1, 1, "A", NULL),
 (2	, 1, 2, 1, 2, "A", NULL),
 (3	, 1, 3, 1, 3, "A", NULL),
@@ -412,7 +412,7 @@ INSERT INTO butacas (IdButaca, IdSala ,NroButaca, Fila, Columna, Estado, Observa
 
 
 -- Poblar tabla de funciones
-INSERT INTO funciones (IdFuncion, IdPelicula, IdSala, FechaProbableInicio, FechaProbableFin, FechaInicio, FechaFin, Precio, Estado, Observaciones) VALUES
+INSERT INTO Funciones (IdFuncion, IdPelicula, IdSala, FechaProbableInicio, FechaProbableFin, FechaInicio, FechaFin, Precio, Estado, Observaciones) VALUES
 
 -- John Wick en Sala 1
 (1, 1,  1, '2026-04-10 14:00:00', '2026-04-10 15:41:00', '2026-04-10 14:05:00', '2026-04-10 15:45:00', 2500.00, 'A', NULL),
@@ -475,7 +475,7 @@ INSERT INTO funciones (IdFuncion, IdPelicula, IdSala, FechaProbableInicio, Fecha
 
 -- Poblar tabla de reservas
 
-INSERT INTO reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI, FechaAlta, FechaBaja, EstaPagada, Observaciones) VALUES 
+INSERT INTO Reservas (IdFuncion, IdPelicula, IdSala, IdButaca, DNI, FechaAlta, FechaBaja, EstaPagada, Observaciones) VALUES 
 (24, 4, 2, 8 , "44637850", '2026-02-16 19:00:00', NULL, "S", NULL),
 (24, 4, 2, 9 , "44637950", '2026-02-16 19:00:00', NULL, "S", NULL),
 (24, 4, 2, 10, "44638050", '2026-02-16 19:00:00', NULL, "S", NULL),
